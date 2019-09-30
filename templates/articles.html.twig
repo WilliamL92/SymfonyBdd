@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{# header #}
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+
+{# body #}
+{% block body %}
+
+{{ parent() }}
+
+<div class="text-center">
+
+<h1>Articles</h1>
+<hr>
+
+{% for article in art %}
+<li class="list-group-item">
+{{ article.libelle ~': '~ article.pu ~'€'}}
+</li>
+{% endfor %}
+
+<form method="post" action="{{ path("create") }}">
+
+<div class="form-group">
+
+<input type="text" placeholder="libelle" name="libelle">
+<input type="text" placeholder="pu" name="pu">
+
+<input type="submit" value="envoyer">
+
+</div>
+
+</form>
+
+<h3>Vous pouvez aller à la page <a href="{{ path("home") }}">accueil</a> où aller à la page <a href="{{ path("personnes") }}">personnes</a></h3>
+
+</div>
+
+{% endblock %}

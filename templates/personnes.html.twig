@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{# header #}
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+
+{# body #}
+{% block body %}
+
+{{ parent() }}
+
+<div class="text-center">
+
+<h1>Personnes</h1>
+<hr>
+
+<h3>Vous pouvez aller à la page <a href="{{ path("articles") }}">articles</a> où aller à la page <a href="{{ path("home") }}">accueil</a></h3>
+
+</div>
+
+{% endblock %}

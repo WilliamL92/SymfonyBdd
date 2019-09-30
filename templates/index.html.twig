@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{# header #}
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+
+{# body #}
+{% block body %}
+
+{{ parent() }}
+
+<div class="text-center">
+
+<h1>Accueil</h1>
+<hr>
+
+<ul class="list-group">
+
+</ul>
+
+<h3>Vous pouvez aller à la page <a href="{{ path("personnes") }}">personnes</a> où aller à la page <a href="{{ path("articles") }}">articles</a></h3>
+
+<div id="blockAlign" class="card" style="width: 18rem;">
+  <img src="https://picsum.photos/100/100" class="card-img-top" alt="monImage">
+</div>
+
+</div>
+
+{% endblock %}
