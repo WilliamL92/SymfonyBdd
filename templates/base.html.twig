@@ -29,6 +29,15 @@
     </div>
   </nav>
 </header>
+
+<div class="m-5 bg-primary text-white" style="width: 80%">
+{% for msg in app.flashes %}
+{% for m in msg %}
+{{ m }}
+{% endfor %}
+{% endfor %}
+</div>
+
         {% endblock %}
         {% block javascripts %}
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

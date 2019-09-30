@@ -43,8 +43,16 @@ class homeController extends AbstractController{
         $article->setLibelle($request->get('libelle'))
         ->setPu($request->get('pu'));
 
-        $manager->persist($article);
-        $manager->flush();
+try{
+    $manager->persist($article);
+    $manager->flush();
+
+}
+catch(UniqueConstraintViolationException $e){
+$this->addFlush("warning", 
+                "Duplication de libelle"
+);
+}
 
         return $this->redirectToRoute("articles");
 
