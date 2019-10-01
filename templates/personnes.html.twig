@@ -15,6 +15,25 @@
 <h1>Personnes</h1>
 <hr>
 
+{% for personne in pers %}
+<li class="list-group-item">
+{{ 'Nom: ' ~ personne.nom ~'/Prénom: '~ personne.prenom }}
+</li>
+{% endfor %}
+
+<form method="post" action="{{ path("createPersonne") }}">
+
+<div class="form-group">
+
+<input type="text" placeholder="Nom" name="nom">
+<input type="text" placeholder="Prénom" name="prenom">
+
+<input type="submit" value="envoyer">
+
+</div>
+
+</form>
+
 <h3>Vous pouvez aller à la page <a href="{{ path("articles") }}">articles</a> où aller à la page <a href="{{ path("home") }}">accueil</a></h3>
 
 </div>
