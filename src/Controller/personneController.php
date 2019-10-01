@@ -15,7 +15,7 @@ class personneController extends AbstractController{
 * @Route("/personnes", name="personnes")
 */
 
-      public function liste_personne(EntityManagerInterface $manager2){
+    public function liste_personne(EntityManagerInterface $manager2){
 
         $personnes = $manager2->getRepository(Personnes::class)->findAll();
 
@@ -36,21 +36,15 @@ public function new_personnes(EntityManagerInterface $manager, Request $request)
     $personnes->setNom($request->get('nom'))
     ->setPrenom($request->get('prenom'));
 
-try{
-$manager->persist($personnes);
-$manager->flush();
-
-}
-catch(UniqueConstraintViolationException $e){
-$this->addFlush("warning", 
-            "Erreur de saisie"
-);
-}
-
-return $this->redirectToRoute("personnes");
-
-}
-
+        try{
+            $manager->persist($personnes);
+            $manager->flush();
+            }
+        catch(UniqueConstraintViolationException $e){
+        $this->addFlush("warning", "Erreur de saisie");
+            }
+        return $this->redirectToRoute("personnes");
+    }
 }
 
 ?>

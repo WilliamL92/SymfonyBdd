@@ -1,0 +1,67 @@
+{% extends "base.html.twig" %}
+
+{# header #}
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+
+{# body #}
+{% block body %}
+
+{{ parent() }}
+
+<div class="text-center">
+
+<h1>Articles</h1>
+<hr>
+
+<form method="post" action="{{ path("modify", {'id_art': details.id}) }}">
+<table class="table">
+<thead class="bg-secondary">
+<tr>
+<th scope="col">Article:</th>
+<th scope="col">Prix (€):</th>
+<th scope="col">Quantité:</th>
+<th scope="col">Statut:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row">
+
+<input name="libelle" type="text" value="{{ details.libelle }}" class="form-control">
+</td>
+<td scope="row">
+<input name="pu" type="number" value="{{ details.pu }}" class="form-control">
+</td>
+<td scope="row">
+<input name="quantity" type="number" value="{{ details.quantity }}" class="form-control">
+</td>
+<td scope="row">
+
+{% if details.statut == "neuf" %}
+<label for="neuf">neuf</label>
+<input id="neuf" name="statut" type="radio" value="neuf" class="formRadio" checked>
+<label for="occasion">occasion</label>
+<input id="occasion" name="statut" type="radio" value="occasion" class="formRadio">
+
+{% elseif details.statut == "occasion" %}
+<label for="neuf">neuf</label>
+<input id="neuf" name="statut" type="radio" value="neuf" class="formRadio">
+<label for="occasion">occasion</label>
+<input id="occasion" name="statut" type="radio" value="occasion" class="formRadio" checked>
+{% endif %}
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<a class="btn btn-danger" href="{{ path("suppression", {"id_art" : details.id }) }}">Supprimer <i class="text-white fas fa-trash-alt"></i></a>
+<input type="submit" value="modifier" class="btn btn-success">
+</form>
+<h3>Vous pouvez aller à la page <a href="{{ path("home") }}">accueil</a> où aller à la page <a href="{{ path("personnes") }}">personnes</a></h3>
+
+</div>
+
+{% endblock %}

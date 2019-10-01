@@ -16,7 +16,7 @@
 <hr>
 
 <table class="table">
-<thead>
+<thead class="bg-secondary">
 <tr>
 <th scope="col">Article:</th>
 <th scope="col">Prix:</th>
@@ -28,7 +28,7 @@
 {% for article in art %}
 <tr>
 <td scope="row">
-<a href="#">
+<a href="{{ path("detail", {'id_art': article.id}) }}">
 {{ article.libelle }}
 </a>
 </td>
@@ -46,14 +46,18 @@
 </tbody>
 </table>
 
+<hr>
+
+<h2>Ajouter un article</h2>
+<br>
 
 <form method="post" action="{{ path("create") }}">
 
 <div class="form-group">
 
 <input type="text" placeholder="libelle" name="libelle" required>
-<input type="text" placeholder="prix" name="pu" required>
-<input type="text" placeholder="quantité" name="quantity" required>
+<input type="number" placeholder="prix" name="pu" required>
+<input type="number" placeholder="quantité" name="quantity" required>
 <br>
 <label for="neuf">Neuf: </label>
 <input id="neuf" type="radio" value="neuf" name="statut" checked>
