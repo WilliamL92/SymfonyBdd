@@ -2,6 +2,14 @@ home:
     path: /home
     controller: App\Controller\homeController::home
 
+article:
+    path: /articles
+    controller: App\Controller\articleController::liste_article
+
+personne:
+    path: /personnes
+    controller: App\Controller\personneController::liste_personne
+
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
