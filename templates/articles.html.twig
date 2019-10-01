@@ -15,20 +15,50 @@
 <h1>Articles</h1>
 <hr>
 
+<table class="table">
+<thead>
+<tr>
+<th scope="col">Article:</th>
+<th scope="col">Prix:</th>
+<th scope="col">Quantité:</th>
+<th scope="col">Statut:</th>
+</tr>
+</thead>
+<tbody>
 {% for article in art %}
-<li class="list-group-item">
-{{ article.libelle ~': '~ article.pu ~'€'}}
-</li>
+<tr>
+<td scope="row">
+{{ article.libelle }}
+</td>
+<td scope="row">
+{{ article.pu ~ ' €'}}
+</td>
+<td scope="row">
+{{ article.quantity }}
+</td>
+<td scope="row">
+{{ article.statut }}
+</td>
+</tr>
 {% endfor %}
+</tbody>
+</table>
+
 
 <form method="post" action="{{ path("create") }}">
 
 <div class="form-group">
 
-<input type="text" placeholder="libelle" name="libelle">
-<input type="text" placeholder="pu" name="pu">
-
-<input type="submit" value="envoyer">
+<input type="text" placeholder="libelle" name="libelle" required>
+<input type="text" placeholder="prix" name="pu" required>
+<input type="text" placeholder="quantité" name="quantity" required>
+<br>
+<label for="neuf">Neuf: </label>
+<input id="neuf" type="radio" value="neuf" name="statut" checked>
+<label for="occasion">Occasion: </label>
+<input id="occasion" type="radio" value="occasion" name="statut">
+<br>
+<input class="btn btn-primary" type="submit" value="envoyer">
 
 </div>
 

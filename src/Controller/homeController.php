@@ -42,7 +42,9 @@ class homeController extends AbstractController{
         $article = new Article();
 
         $article->setLibelle($request->get('libelle'))
-        ->setPu($request->get('pu'));
+        ->setPu($request->get('pu'))
+        ->setQuantity($request->get('quantity'))
+        ->setStatut($request->get('statut'));
 
 try{
     $manager->persist($article);

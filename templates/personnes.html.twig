@@ -15,20 +15,39 @@
 <h1>Personnes</h1>
 <hr>
 
+<table class="table">
+<thead>
+<tr>
+<th scope="col">Id:</th>
+<th scope="col">Nom:</th>
+<th scope="col">Prénom:</th>
+</tr>
+</thead>
+<tbody>
 {% for personne in pers %}
-<li class="list-group-item">
-{{ 'Nom: ' ~ personne.nom ~'/Prénom: '~ personne.prenom }}
-</li>
+<tr>
+<td scope="row">
+{{ personne.id }}
+</td>
+<td scope="row">
+{{ personne.nom }}
+</td>
+<td scope="row">
+{{ personne.prenom }}
+</td>
+</tr>
 {% endfor %}
+</tbody>
+</table>
 
 <form method="post" action="{{ path("createPersonne") }}">
 
 <div class="form-group">
 
-<input type="text" placeholder="Nom" name="nom">
-<input type="text" placeholder="Prénom" name="prenom">
-
-<input type="submit" value="envoyer">
+<input type="text" placeholder="Nom" name="nom" required>
+<input type="text" placeholder="Prénom" name="prenom" required>
+<br>
+<input class="btn btn-primary" type="submit" value="envoyer">
 
 </div>
 

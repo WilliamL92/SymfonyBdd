@@ -26,6 +26,16 @@ class Article
      */
     private $pu;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $quantity;
+
+    /**
+     * @ORM\Column(type="string", length=15)
+     */
+    private $statut;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +61,30 @@ class Article
     public function setPu(int $pu): self
     {
         $this->pu = $pu;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(?int $quantity): self
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getStatut(): ?string
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(string $statut): self
+    {
+        $this->statut = $statut;
 
         return $this;
     }
