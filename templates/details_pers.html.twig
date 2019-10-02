@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{# header #}
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+
+{# body #}
+{% block body %}
+
+{{ parent() }}
+
+<div class="text-center">
+
+<h1>Personnes</h1>
+<hr>
+
+<form method="post" action="{{ path("modifyP", {'id_pers': detailsP.id}) }}">
+<table class="table">
+<thead class="thead-dark">
+<tr>
+<th scope="col">Nom:</th>
+<th scope="col">Prénom:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td scope="row">
+<input name="nom" type="text" value="{{ detailsP.nom }}" class="form-control">
+</td>
+<td scope="row">
+<input name="prenom" type="text" value="{{ detailsP.prenom }}" class="form-control">
+</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<a class="btn btn-danger" href="{{ path("suppressionP", {"id_pers" : detailsP.id }) }}">Supprimer <i class="text-white fas fa-trash-alt"></i></a>
+<button type="submit" class="btn btn-success">Modifier <i class="fas fa-edit"></i></button>
+</form>
+
+{% endblock %}

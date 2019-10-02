@@ -17,7 +17,7 @@
 
 <form method="post" action="{{ path("modify", {'id_art': details.id}) }}">
 <table class="table">
-<thead class="bg-secondary">
+<thead class="thead-dark">
 <tr>
 <th scope="col">Article:</th>
 <th scope="col">Prix (€):</th>
@@ -58,9 +58,8 @@
 
 <br>
 <a class="btn btn-danger" href="{{ path("suppression", {"id_art" : details.id }) }}">Supprimer <i class="text-white fas fa-trash-alt"></i></a>
-<input type="submit" value="modifier" class="btn btn-success">
+<button type="submit" class="btn btn-success">Modifier <i class="fas fa-edit"></i></button>
 </form>
-<h3>Vous pouvez aller à la page <a href="{{ path("home") }}">accueil</a> où aller à la page <a href="{{ path("personnes") }}">personnes</a></h3>
 
 </div>
 

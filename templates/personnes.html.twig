@@ -16,7 +16,7 @@
 <hr>
 
 <table class="table">
-<thead>
+<thead class="thead-dark">
 <tr>
 <th scope="col">Id:</th>
 <th scope="col">Nom:</th>
@@ -30,7 +30,9 @@
 {{ personne.id }}
 </td>
 <td scope="row">
+<a href="{{ path("detailP", {'id_pers': personne.id}) }}">
 {{ personne.nom }}
+</a>
 </td>
 <td scope="row">
 {{ personne.prenom }}
@@ -40,20 +42,22 @@
 </tbody>
 </table>
 
+<hr>
+<h2>Ajouter une personne</h2>
+<br>
+
 <form method="post" action="{{ path("createPersonne") }}">
 
 <div class="form-group">
 
 <input type="text" placeholder="Nom" name="nom" required>
 <input type="text" placeholder="Prénom" name="prenom" required>
-<br>
-<input class="btn btn-primary" type="submit" value="envoyer">
+<br><br>
+<button class="btn btn-primary" type="submit"><i class="fas fa-share"></i> Envoyer</button>
 
 </div>
 
 </form>
-
-<h3>Vous pouvez aller à la page <a href="{{ path("articles") }}">articles</a> où aller à la page <a href="{{ path("home") }}">accueil</a></h3>
 
 </div>
 

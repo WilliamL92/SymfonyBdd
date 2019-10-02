@@ -17,7 +17,7 @@ class Article
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=20, unique=true)
      */
     private $libelle;
 
@@ -35,6 +35,21 @@ class Article
      * @ORM\Column(type="string", length=15)
      */
     private $statut;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="cat")
+     * @ORM\JoinColumn()
+     * @ORM\Column(type="string", length=20)
+     */
+    private $categorie;
+
+    public function getCategorie(){
+        return $this->categorie;
+    }
+
+    public function setCategorie($cat){
+        $this->categorie = $cat;
+    }
 
     public function getId(): ?int
     {
